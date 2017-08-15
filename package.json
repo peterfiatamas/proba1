@@ -1,0 +1,8 @@
+{
+    "name": "proba1",
+    "version": "1.0.0",
+    "keywords": ["util", "functional", "server", "client", "browser"],
+    "author": "Tamás",
+    "contributors": [],
+    "dependencies": {}
+}
