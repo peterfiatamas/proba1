@@ -1,12 +1,62 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-        <button>Ok!</button>
-    </body>
-</html>
+    <!DOCTYPE html>  
+    <html>  
+    <head>  
+      <title>Slideshow</title> 
+      <meta charset="utf-8">
+      <style type="text/css">  
+        .slide {  
+          display: none;  
+        }  
+        #slideshow .active {  
+          display: block;  
+        }  
+        #slideshow{
+            margin-left: 200px;
+        }
+      </style>  
+    </head>  
+    <body>  
+      <div id="slideshow">  
+        <div class="slide active"><img src="kep/1.jpg" alt="1. slide" /></div>  
+        <div class="slide"><img src="kep/2.jpg" alt="2. slide" /></div>  
+        <div class="slide"><img src="kep/3.jpg" alt="3. slide" /></div>  
+      </div>  
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>  
+      <script type="text/javascript">  
+        jQuery(function ($) {  
+          var timeout  
+            , current = 0  
+            , container = $('#slideshow')  
+            , slides = container.find('.slide');  
+      
+          /**  
+           * Indul a slideshow.  
+           */  
+          function start() {  
+            timeout = window.setTimeout(showNext, 3000);  
+          }  
+      
+          /**  
+           * Következő kép mutatása.  
+           */  
+          function showNext() {  
+            slides.eq(current).removeClass('active');  
+            current += 1;  
+            if (current >= slides.length) {  
+              current = 0;  
+            }  
+            slides.eq(current).addClass('active');  
+            start();  
+          }  
+      
+          container.mouseenter(function () {  
+            clearTimeout(timeout)  
+          }).mouseleave(function () {  
+            start();  
+          });  
+      
+          start();  
+        });  
+      </script>  
+    </body>  
+    </html>  
